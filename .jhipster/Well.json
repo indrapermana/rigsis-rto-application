@@ -1,0 +1,138 @@
+{
+    "name": "Well",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "legalName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "licenseDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "licenseNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "govermentNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "apiNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "country",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "block",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "field",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "district",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "county",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "state",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "region",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "operator",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "operatorInterest",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "operatorDivision",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "timeZone",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "Status",
+            "fieldValues": "Active,Inactive"
+        },
+        {
+            "fieldName": "purpose",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "direction",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fluid",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateTimeSpud",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "dateTimePA",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "headElevation",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "groundElevation",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "waterDepth",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "latitude",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "longitude",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "wellbore",
+            "otherEntityName": "wellbore",
+            "otherEntityRelationshipName": "well"
+        }
+    ],
+    "changelogDate": "20181116160726",
+    "entityTableName": "well",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

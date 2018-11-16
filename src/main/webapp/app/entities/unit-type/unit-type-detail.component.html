@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="unitType">
+            <h2><span>Unit Type</span> {{unitType.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Type</span></dt>
+                <dd>
+                    <span>{{unitType.type}}</span>
+                </dd>
+                <dt><span>Base Unit</span></dt>
+                <dd>
+                    <div *ngIf="unitType.baseUnit">
+                        <a [routerLink]="['/base-unit', unitType.baseUnit?.id, 'view']">{{unitType.baseUnit?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/unit-type', unitType.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

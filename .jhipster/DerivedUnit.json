@@ -1,0 +1,45 @@
+{
+    "name": "DerivedUnit",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "symbol",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "conversionType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "factor",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "origin",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "baseUnit",
+            "otherEntityName": "baseUnit",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181116160734",
+    "entityTableName": "derived_unit",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

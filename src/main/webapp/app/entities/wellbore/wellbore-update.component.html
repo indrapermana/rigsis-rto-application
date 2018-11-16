@@ -1,0 +1,155 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-wellbore-heading">Create or edit a Wellbore</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!wellbore.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="wellbore.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="wellbore.name" required/>
+                    <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.name?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_wellName">Well Name</label>
+                    <input type="text" class="form-control" name="wellName" id="field_wellName"
+                        [(ngModel)]="wellbore.wellName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_parentWellboreName">Parent Wellbore Name</label>
+                    <input type="text" class="form-control" name="parentWellboreName" id="field_parentWellboreName"
+                        [(ngModel)]="wellbore.parentWellboreName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_govermentNumber">Goverment Number</label>
+                    <input type="text" class="form-control" name="govermentNumber" id="field_govermentNumber"
+                        [(ngModel)]="wellbore.govermentNumber" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_status">Status</label>
+                    <select class="form-control" name="status" [(ngModel)]="wellbore.status" id="field_status" >
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_purpose">Purpose</label>
+                    <input type="text" class="form-control" name="purpose" id="field_purpose"
+                        [(ngModel)]="wellbore.purpose" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_type">Type</label>
+                    <input type="text" class="form-control" name="type" id="field_type"
+                        [(ngModel)]="wellbore.type" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_shape">Shape</label>
+                    <input type="text" class="form-control" name="shape" id="field_shape"
+                        [(ngModel)]="wellbore.shape" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_dayTarget">Day Target</label>
+                    <input type="number" class="form-control" name="dayTarget" id="field_dayTarget"
+                        [(ngModel)]="wellbore.dayTarget" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_kickOffDate">Kick Off Date</label>
+                    <div class="d-flex">
+                        <input id="field_kickOffDate" type="datetime-local" class="form-control" name="kickOffDate" [(ngModel)]="kickOffDate"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_achievedTD">Achieved TD</label>
+                    <select class="form-control" name="achievedTD" [(ngModel)]="wellbore.achievedTD" id="field_achievedTD" >
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_mdCurrent">Md Current</label>
+                    <input type="number" class="form-control" name="mdCurrent" id="field_mdCurrent"
+                        [(ngModel)]="wellbore.mdCurrent" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tvdCurrent">Tvd Current</label>
+                    <input type="number" class="form-control" name="tvdCurrent" id="field_tvdCurrent"
+                        [(ngModel)]="wellbore.tvdCurrent" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_mdBitCurrent">Md Bit Current</label>
+                    <input type="number" class="form-control" name="mdBitCurrent" id="field_mdBitCurrent"
+                        [(ngModel)]="wellbore.mdBitCurrent" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tvdBitCurrent">Tvd Bit Current</label>
+                    <input type="number" class="form-control" name="tvdBitCurrent" id="field_tvdBitCurrent"
+                        [(ngModel)]="wellbore.tvdBitCurrent" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_mdKickOff">Md Kick Off</label>
+                    <input type="number" class="form-control" name="mdKickOff" id="field_mdKickOff"
+                        [(ngModel)]="wellbore.mdKickOff" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tvdKickOff">Tvd Kick Off</label>
+                    <input type="number" class="form-control" name="tvdKickOff" id="field_tvdKickOff"
+                        [(ngModel)]="wellbore.tvdKickOff" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_mdPlanned">Md Planned</label>
+                    <input type="number" class="form-control" name="mdPlanned" id="field_mdPlanned"
+                        [(ngModel)]="wellbore.mdPlanned" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tvdPlanned">Tvd Planned</label>
+                    <input type="number" class="form-control" name="tvdPlanned" id="field_tvdPlanned"
+                        [(ngModel)]="wellbore.tvdPlanned" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_mdSubSea">Md Sub Sea</label>
+                    <input type="number" class="form-control" name="mdSubSea" id="field_mdSubSea"
+                        [(ngModel)]="wellbore.mdSubSea" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tvdSubSea">Tvd Sub Sea</label>
+                    <input type="number" class="form-control" name="tvdSubSea" id="field_tvdSubSea"
+                        [(ngModel)]="wellbore.tvdSubSea" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_well">Well</label>
+                    <select class="form-control" id="field_well" name="well" [(ngModel)]="wellbore.well" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="wellOption.id === wellbore.well?.id ? wellbore.well : wellOption" *ngFor="let wellOption of wells; trackBy: trackWellById">{{wellOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_parent">Parent</label>
+                    <select class="form-control" id="field_parent" name="parent" [(ngModel)]="wellbore.parent" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="wellboreOption.id === wellbore.parent?.id ? wellbore.parent : wellboreOption" *ngFor="let wellboreOption of wellbores; trackBy: trackWellboreById">{{wellboreOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

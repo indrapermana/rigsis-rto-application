@@ -1,0 +1,119 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="wellbore">
+            <h2><span>Wellbore</span> {{wellbore.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{wellbore.name}}</span>
+                </dd>
+                <dt><span>Well Name</span></dt>
+                <dd>
+                    <span>{{wellbore.wellName}}</span>
+                </dd>
+                <dt><span>Parent Wellbore Name</span></dt>
+                <dd>
+                    <span>{{wellbore.parentWellboreName}}</span>
+                </dd>
+                <dt><span>Goverment Number</span></dt>
+                <dd>
+                    <span>{{wellbore.govermentNumber}}</span>
+                </dd>
+                <dt><span>Status</span></dt>
+                <dd>
+                    <span>{{wellbore.status}}</span>
+                </dd>
+                <dt><span>Purpose</span></dt>
+                <dd>
+                    <span>{{wellbore.purpose}}</span>
+                </dd>
+                <dt><span>Type</span></dt>
+                <dd>
+                    <span>{{wellbore.type}}</span>
+                </dd>
+                <dt><span>Shape</span></dt>
+                <dd>
+                    <span>{{wellbore.shape}}</span>
+                </dd>
+                <dt><span>Day Target</span></dt>
+                <dd>
+                    <span>{{wellbore.dayTarget}}</span>
+                </dd>
+                <dt><span>Kick Off Date</span></dt>
+                <dd>
+                    <span>{{wellbore.kickOffDate}}</span>
+                </dd>
+                <dt><span>Achieved TD</span></dt>
+                <dd>
+                    <span>{{wellbore.achievedTD}}</span>
+                </dd>
+                <dt><span>Md Current</span></dt>
+                <dd>
+                    <span>{{wellbore.mdCurrent}}</span>
+                </dd>
+                <dt><span>Tvd Current</span></dt>
+                <dd>
+                    <span>{{wellbore.tvdCurrent}}</span>
+                </dd>
+                <dt><span>Md Bit Current</span></dt>
+                <dd>
+                    <span>{{wellbore.mdBitCurrent}}</span>
+                </dd>
+                <dt><span>Tvd Bit Current</span></dt>
+                <dd>
+                    <span>{{wellbore.tvdBitCurrent}}</span>
+                </dd>
+                <dt><span>Md Kick Off</span></dt>
+                <dd>
+                    <span>{{wellbore.mdKickOff}}</span>
+                </dd>
+                <dt><span>Tvd Kick Off</span></dt>
+                <dd>
+                    <span>{{wellbore.tvdKickOff}}</span>
+                </dd>
+                <dt><span>Md Planned</span></dt>
+                <dd>
+                    <span>{{wellbore.mdPlanned}}</span>
+                </dd>
+                <dt><span>Tvd Planned</span></dt>
+                <dd>
+                    <span>{{wellbore.tvdPlanned}}</span>
+                </dd>
+                <dt><span>Md Sub Sea</span></dt>
+                <dd>
+                    <span>{{wellbore.mdSubSea}}</span>
+                </dd>
+                <dt><span>Tvd Sub Sea</span></dt>
+                <dd>
+                    <span>{{wellbore.tvdSubSea}}</span>
+                </dd>
+                <dt><span>Well</span></dt>
+                <dd>
+                    <div *ngIf="wellbore.well">
+                        <a [routerLink]="['/well', wellbore.well?.id, 'view']">{{wellbore.well?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Parent</span></dt>
+                <dd>
+                    <div *ngIf="wellbore.parent">
+                        <a [routerLink]="['/wellbore', wellbore.parent?.id, 'view']">{{wellbore.parent?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/wellbore', wellbore.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

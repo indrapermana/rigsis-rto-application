@@ -1,0 +1,35 @@
+{
+    "name": "UnitType",
+    "fields": [
+        {
+            "fieldName": "type",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "baseUnit",
+            "otherEntityName": "baseUnit",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "unitTypeItem",
+            "otherEntityName": "unitTypeItem",
+            "otherEntityRelationshipName": "unitType"
+        }
+    ],
+    "changelogDate": "20181116160735",
+    "entityTableName": "unit_type",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

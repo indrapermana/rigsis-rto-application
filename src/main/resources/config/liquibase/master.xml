@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181116160726_added_entity_Well.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181116160727_added_entity_Wellbore.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181116160728_added_entity_Rig.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181116160729_added_entity_Job.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181116160730_added_entity_WitsService.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181116160731_added_entity_RecordType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181116160732_added_entity_RecordItem.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181116160733_added_entity_BaseUnit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181116160734_added_entity_DerivedUnit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181116160735_added_entity_UnitType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181116160736_added_entity_UnitTypeItem.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20181116160727_added_entity_constraints_Wellbore.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181116160728_added_entity_constraints_Rig.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181116160729_added_entity_constraints_Job.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181116160732_added_entity_constraints_RecordItem.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181116160734_added_entity_constraints_DerivedUnit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181116160735_added_entity_constraints_UnitType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181116160736_added_entity_constraints_UnitTypeItem.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+</databaseChangeLog>

@@ -1,0 +1,105 @@
+{
+    "name": "Rig",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "offshore",
+            "fieldType": "BooleanType",
+            "fieldValues": "Yes,No"
+        },
+        {
+            "fieldName": "owner",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "rigClass",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "manufacturer",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "yearService",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "approvals",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "registration",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "contact",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phone",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fax",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "drillDepth",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "waterDepth",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "airGap",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "startDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "endDate",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "wellbore",
+            "otherEntityName": "wellbore",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "job",
+            "otherEntityName": "job",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "rig"
+        }
+    ],
+    "changelogDate": "20181116160728",
+    "entityTableName": "rig",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

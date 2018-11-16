@@ -1,0 +1,76 @@
+<div>
+    <h2 id="page-heading">
+        <span>Record Items</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-record-item" [routerLink]="['/record-item/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Record Item
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="recordItems">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Number</span></th>
+            <th><span>Name</span></th>
+            <th><span>Mnemonic</span></th>
+            <th><span>Special Case</span></th>
+            <th><span>Unit Type</span></th>
+            <th><span>Unit</span></th>
+            <th><span>Data Type</span></th>
+            <th><span>Null Value</span></th>
+            <th><span>Description</span></th>
+            <th><span>Record Type</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let recordItem of recordItems ;trackBy: trackId">
+                <td><a [routerLink]="['/record-item', recordItem.id, 'view' ]">{{recordItem.id}}</a></td>
+                <td>{{recordItem.number}}</td>
+                <td>{{recordItem.name}}</td>
+                <td>{{recordItem.mnemonic}}</td>
+                <td>{{recordItem.specialCase}}</td>
+                <td>{{recordItem.unitType}}</td>
+                <td>{{recordItem.unit}}</td>
+                <td>{{recordItem.dataType}}</td>
+                <td>{{recordItem.nullValue}}</td>
+                <td>{{recordItem.description}}</td>
+                <td>
+                    <div *ngIf="recordItem.recordType">
+                        <a [routerLink]="['../record-type', recordItem.recordType?.id, 'view' ]" >{{recordItem.recordType?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/record-item', recordItem.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/record-item', recordItem.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'record-item/'+ recordItem.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

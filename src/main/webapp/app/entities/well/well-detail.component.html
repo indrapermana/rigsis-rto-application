@@ -1,0 +1,135 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="well">
+            <h2><span>Well</span> {{well.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{well.name}}</span>
+                </dd>
+                <dt><span>Legal Name</span></dt>
+                <dd>
+                    <span>{{well.legalName}}</span>
+                </dd>
+                <dt><span>License Date</span></dt>
+                <dd>
+                    <span>{{well.licenseDate}}</span>
+                </dd>
+                <dt><span>License Number</span></dt>
+                <dd>
+                    <span>{{well.licenseNumber}}</span>
+                </dd>
+                <dt><span>Goverment Number</span></dt>
+                <dd>
+                    <span>{{well.govermentNumber}}</span>
+                </dd>
+                <dt><span>Api Number</span></dt>
+                <dd>
+                    <span>{{well.apiNumber}}</span>
+                </dd>
+                <dt><span>Country</span></dt>
+                <dd>
+                    <span>{{well.country}}</span>
+                </dd>
+                <dt><span>Block</span></dt>
+                <dd>
+                    <span>{{well.block}}</span>
+                </dd>
+                <dt><span>Field</span></dt>
+                <dd>
+                    <span>{{well.field}}</span>
+                </dd>
+                <dt><span>District</span></dt>
+                <dd>
+                    <span>{{well.district}}</span>
+                </dd>
+                <dt><span>County</span></dt>
+                <dd>
+                    <span>{{well.county}}</span>
+                </dd>
+                <dt><span>State</span></dt>
+                <dd>
+                    <span>{{well.state}}</span>
+                </dd>
+                <dt><span>Region</span></dt>
+                <dd>
+                    <span>{{well.region}}</span>
+                </dd>
+                <dt><span>Operator</span></dt>
+                <dd>
+                    <span>{{well.operator}}</span>
+                </dd>
+                <dt><span>Operator Interest</span></dt>
+                <dd>
+                    <span>{{well.operatorInterest}}</span>
+                </dd>
+                <dt><span>Operator Division</span></dt>
+                <dd>
+                    <span>{{well.operatorDivision}}</span>
+                </dd>
+                <dt><span>Time Zone</span></dt>
+                <dd>
+                    <span>{{well.timeZone}}</span>
+                </dd>
+                <dt><span>Status</span></dt>
+                <dd>
+                    <span>{{well.status}}</span>
+                </dd>
+                <dt><span>Purpose</span></dt>
+                <dd>
+                    <span>{{well.purpose}}</span>
+                </dd>
+                <dt><span>Direction</span></dt>
+                <dd>
+                    <span>{{well.direction}}</span>
+                </dd>
+                <dt><span>Fluid</span></dt>
+                <dd>
+                    <span>{{well.fluid}}</span>
+                </dd>
+                <dt><span>Date Time Spud</span></dt>
+                <dd>
+                    <span>{{well.dateTimeSpud}}</span>
+                </dd>
+                <dt><span>Date Time PA</span></dt>
+                <dd>
+                    <span>{{well.dateTimePA}}</span>
+                </dd>
+                <dt><span>Head Elevation</span></dt>
+                <dd>
+                    <span>{{well.headElevation}}</span>
+                </dd>
+                <dt><span>Ground Elevation</span></dt>
+                <dd>
+                    <span>{{well.groundElevation}}</span>
+                </dd>
+                <dt><span>Water Depth</span></dt>
+                <dd>
+                    <span>{{well.waterDepth}}</span>
+                </dd>
+                <dt><span>Latitude</span></dt>
+                <dd>
+                    <span>{{well.latitude}}</span>
+                </dd>
+                <dt><span>Longitude</span></dt>
+                <dd>
+                    <span>{{well.longitude}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/well', well.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

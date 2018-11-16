@@ -1,0 +1,47 @@
+{
+    "name": "BaseUnit",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "symbol",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "origin",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "unitType",
+            "otherEntityName": "unitType",
+            "otherEntityRelationshipName": "baseUnit"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "derivedUnit",
+            "otherEntityName": "derivedUnit",
+            "otherEntityRelationshipName": "baseUnit"
+        }
+    ],
+    "changelogDate": "20181116160733",
+    "entityTableName": "base_unit",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

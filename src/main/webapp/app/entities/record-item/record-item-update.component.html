@@ -1,0 +1,106 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-record-item-heading">Create or edit a Record Item</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!recordItem.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="recordItem.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_number">Number</label>
+                    <input type="number" class="form-control" name="number" id="field_number"
+                        [(ngModel)]="recordItem.number" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="recordItem.name" required/>
+                    <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.name?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_mnemonic">Mnemonic</label>
+                    <input type="text" class="form-control" name="mnemonic" id="field_mnemonic"
+                        [(ngModel)]="recordItem.mnemonic" required/>
+                    <div [hidden]="!(editForm.controls.mnemonic?.dirty && editForm.controls.mnemonic?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.mnemonic?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_specialCase">Special Case</label>
+                    <input type="text" class="form-control" name="specialCase" id="field_specialCase"
+                        [(ngModel)]="recordItem.specialCase" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_unitType">Unit Type</label>
+                    <input type="text" class="form-control" name="unitType" id="field_unitType"
+                        [(ngModel)]="recordItem.unitType" required/>
+                    <div [hidden]="!(editForm.controls.unitType?.dirty && editForm.controls.unitType?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.unitType?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_unit">Unit</label>
+                    <input type="text" class="form-control" name="unit" id="field_unit"
+                        [(ngModel)]="recordItem.unit" required/>
+                    <div [hidden]="!(editForm.controls.unit?.dirty && editForm.controls.unit?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.unit?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_dataType">Data Type</label>
+                    <input type="text" class="form-control" name="dataType" id="field_dataType"
+                        [(ngModel)]="recordItem.dataType" required/>
+                    <div [hidden]="!(editForm.controls.dataType?.dirty && editForm.controls.dataType?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.dataType?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_nullValue">Null Value</label>
+                    <input type="number" class="form-control" name="nullValue" id="field_nullValue"
+                        [(ngModel)]="recordItem.nullValue" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                        [(ngModel)]="recordItem.description" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_recordType">Record Type</label>
+                    <select class="form-control" id="field_recordType" name="recordType" [(ngModel)]="recordItem.recordType" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="recordTypeOption.id === recordItem.recordType?.id ? recordItem.recordType : recordTypeOption" *ngFor="let recordTypeOption of recordtypes; trackBy: trackRecordTypeById">{{recordTypeOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

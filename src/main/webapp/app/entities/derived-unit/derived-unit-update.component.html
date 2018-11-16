@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-derived-unit-heading">Create or edit a Derived Unit</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!derivedUnit.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="derivedUnit.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="derivedUnit.name" required/>
+                    <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.name?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_symbol">Symbol</label>
+                    <input type="text" class="form-control" name="symbol" id="field_symbol"
+                        [(ngModel)]="derivedUnit.symbol" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_conversionType">Conversion Type</label>
+                    <input type="text" class="form-control" name="conversionType" id="field_conversionType"
+                        [(ngModel)]="derivedUnit.conversionType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_factor">Factor</label>
+                    <input type="number" class="form-control" name="factor" id="field_factor"
+                        [(ngModel)]="derivedUnit.factor" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_origin">Origin</label>
+                    <input type="text" class="form-control" name="origin" id="field_origin"
+                        [(ngModel)]="derivedUnit.origin" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_baseUnit">Base Unit</label>
+                    <select class="form-control" id="field_baseUnit" name="baseUnit" [(ngModel)]="derivedUnit.baseUnit" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="baseUnitOption.id === derivedUnit.baseUnit?.id ? derivedUnit.baseUnit : baseUnitOption" *ngFor="let baseUnitOption of baseunits; trackBy: trackBaseUnitById">{{baseUnitOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

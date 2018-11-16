@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="recordItem">
+            <h2><span>Record Item</span> {{recordItem.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Number</span></dt>
+                <dd>
+                    <span>{{recordItem.number}}</span>
+                </dd>
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{recordItem.name}}</span>
+                </dd>
+                <dt><span>Mnemonic</span></dt>
+                <dd>
+                    <span>{{recordItem.mnemonic}}</span>
+                </dd>
+                <dt><span>Special Case</span></dt>
+                <dd>
+                    <span>{{recordItem.specialCase}}</span>
+                </dd>
+                <dt><span>Unit Type</span></dt>
+                <dd>
+                    <span>{{recordItem.unitType}}</span>
+                </dd>
+                <dt><span>Unit</span></dt>
+                <dd>
+                    <span>{{recordItem.unit}}</span>
+                </dd>
+                <dt><span>Data Type</span></dt>
+                <dd>
+                    <span>{{recordItem.dataType}}</span>
+                </dd>
+                <dt><span>Null Value</span></dt>
+                <dd>
+                    <span>{{recordItem.nullValue}}</span>
+                </dd>
+                <dt><span>Description</span></dt>
+                <dd>
+                    <span>{{recordItem.description}}</span>
+                </dd>
+                <dt><span>Record Type</span></dt>
+                <dd>
+                    <div *ngIf="recordItem.recordType">
+                        <a [routerLink]="['/record-type', recordItem.recordType?.id, 'view']">{{recordItem.recordType?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/record-item', recordItem.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

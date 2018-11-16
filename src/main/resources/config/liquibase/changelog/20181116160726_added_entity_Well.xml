@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity Well.
+    -->
+    <changeSet id="20181116160726-1" author="jhipster">
+        <createTable tableName="well">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="legal_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="license_date" type="datetime">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="license_number" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="goverment_number" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="api_number" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="country" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="jhi_block" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="field" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="district" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="county" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="state" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="region" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="operator" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="operator_interest" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="operator_division" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="time_zone" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="status" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="purpose" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="direction" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="fluid" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="date_time_spud" type="datetime">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="date_time_pa" type="datetime">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="head_elevation" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ground_elevation" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="water_depth" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="latitude" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="longitude" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        <dropDefaultValue tableName="well" columnName="license_date" columnDataType="datetime"/>
+        <dropDefaultValue tableName="well" columnName="date_time_spud" columnDataType="datetime"/>
+        <dropDefaultValue tableName="well" columnName="date_time_pa" columnDataType="datetime"/>
+        
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

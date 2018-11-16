@@ -1,0 +1,101 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="rig">
+            <h2><span>Rig</span> {{rig.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{rig.name}}</span>
+                </dd>
+                <dt><span>Offshore</span></dt>
+                <dd>
+                    <span>{{rig.offshore}}</span>
+                </dd>
+                <dt><span>Owner</span></dt>
+                <dd>
+                    <span>{{rig.owner}}</span>
+                </dd>
+                <dt><span>Type</span></dt>
+                <dd>
+                    <span>{{rig.type}}</span>
+                </dd>
+                <dt><span>Rig Class</span></dt>
+                <dd>
+                    <span>{{rig.rigClass}}</span>
+                </dd>
+                <dt><span>Manufacturer</span></dt>
+                <dd>
+                    <span>{{rig.manufacturer}}</span>
+                </dd>
+                <dt><span>Year Service</span></dt>
+                <dd>
+                    <span>{{rig.yearService}}</span>
+                </dd>
+                <dt><span>Approvals</span></dt>
+                <dd>
+                    <span>{{rig.approvals}}</span>
+                </dd>
+                <dt><span>Registration</span></dt>
+                <dd>
+                    <span>{{rig.registration}}</span>
+                </dd>
+                <dt><span>Contact</span></dt>
+                <dd>
+                    <span>{{rig.contact}}</span>
+                </dd>
+                <dt><span>Email</span></dt>
+                <dd>
+                    <span>{{rig.email}}</span>
+                </dd>
+                <dt><span>Phone</span></dt>
+                <dd>
+                    <span>{{rig.phone}}</span>
+                </dd>
+                <dt><span>Fax</span></dt>
+                <dd>
+                    <span>{{rig.fax}}</span>
+                </dd>
+                <dt><span>Drill Depth</span></dt>
+                <dd>
+                    <span>{{rig.drillDepth}}</span>
+                </dd>
+                <dt><span>Water Depth</span></dt>
+                <dd>
+                    <span>{{rig.waterDepth}}</span>
+                </dd>
+                <dt><span>Air Gap</span></dt>
+                <dd>
+                    <span>{{rig.airGap}}</span>
+                </dd>
+                <dt><span>Start Date</span></dt>
+                <dd>
+                    <span>{{rig.startDate}}</span>
+                </dd>
+                <dt><span>End Date</span></dt>
+                <dd>
+                    <span>{{rig.endDate}}</span>
+                </dd>
+                <dt><span>Wellbore</span></dt>
+                <dd>
+                    <div *ngIf="rig.wellbore">
+                        <a [routerLink]="['/wellbore', rig.wellbore?.id, 'view']">{{rig.wellbore?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/rig', rig.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

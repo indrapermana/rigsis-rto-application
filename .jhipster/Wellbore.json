@@ -1,0 +1,123 @@
+{
+    "name": "Wellbore",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "wellName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "parentWellboreName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "govermentNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "Status",
+            "fieldValues": "Active,Inactive"
+        },
+        {
+            "fieldName": "purpose",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "shape",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dayTarget",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "kickOffDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "achievedTD",
+            "fieldType": "BooleanType",
+            "fieldValues": "Yes,No"
+        },
+        {
+            "fieldName": "mdCurrent",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "tvdCurrent",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "mdBitCurrent",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "tvdBitCurrent",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "mdKickOff",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "tvdKickOff",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "mdPlanned",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "tvdPlanned",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "mdSubSea",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "tvdSubSea",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "well",
+            "otherEntityName": "well",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "parent",
+            "otherEntityName": "wellbore",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "rig",
+            "otherEntityName": "rig",
+            "otherEntityRelationshipName": "wellbore"
+        }
+    ],
+    "changelogDate": "20181116160727",
+    "entityTableName": "wellbore",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

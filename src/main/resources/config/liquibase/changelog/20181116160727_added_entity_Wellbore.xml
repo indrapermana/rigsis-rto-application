@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity Wellbore.
+    -->
+    <changeSet id="20181116160727-1" author="jhipster">
+        <createTable tableName="wellbore">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="well_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="parent_wellbore_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="goverment_number" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="status" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="purpose" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="jhi_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="shape" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="day_target" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="kick_off_date" type="datetime">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="achieved_td" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="md_current" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="tvd_current" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="md_bit_current" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="tvd_bit_current" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="md_kick_off" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="tvd_kick_off" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="md_planned" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="tvd_planned" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="md_sub_sea" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="tvd_sub_sea" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="well_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="parent_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        <dropDefaultValue tableName="wellbore" columnName="kick_off_date" columnDataType="datetime"/>
+        
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

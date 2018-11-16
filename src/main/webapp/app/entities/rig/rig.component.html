@@ -1,0 +1,94 @@
+<div>
+    <h2 id="page-heading">
+        <span>Rigs</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-rig" [routerLink]="['/rig/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Rig
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="rigs">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Name</span></th>
+            <th><span>Offshore</span></th>
+            <th><span>Owner</span></th>
+            <th><span>Type</span></th>
+            <th><span>Rig Class</span></th>
+            <th><span>Manufacturer</span></th>
+            <th><span>Year Service</span></th>
+            <th><span>Approvals</span></th>
+            <th><span>Registration</span></th>
+            <th><span>Contact</span></th>
+            <th><span>Email</span></th>
+            <th><span>Phone</span></th>
+            <th><span>Fax</span></th>
+            <th><span>Drill Depth</span></th>
+            <th><span>Water Depth</span></th>
+            <th><span>Air Gap</span></th>
+            <th><span>Start Date</span></th>
+            <th><span>End Date</span></th>
+            <th><span>Wellbore</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let rig of rigs ;trackBy: trackId">
+                <td><a [routerLink]="['/rig', rig.id, 'view' ]">{{rig.id}}</a></td>
+                <td>{{rig.name}}</td>
+                <td>{{rig.offshore}}</td>
+                <td>{{rig.owner}}</td>
+                <td>{{rig.type}}</td>
+                <td>{{rig.rigClass}}</td>
+                <td>{{rig.manufacturer}}</td>
+                <td>{{rig.yearService}}</td>
+                <td>{{rig.approvals}}</td>
+                <td>{{rig.registration}}</td>
+                <td>{{rig.contact}}</td>
+                <td>{{rig.email}}</td>
+                <td>{{rig.phone}}</td>
+                <td>{{rig.fax}}</td>
+                <td>{{rig.drillDepth}}</td>
+                <td>{{rig.waterDepth}}</td>
+                <td>{{rig.airGap}}</td>
+                <td>{{rig.startDate | date:'medium'}}</td>
+                <td>{{rig.endDate | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="rig.wellbore">
+                        <a [routerLink]="['../wellbore', rig.wellbore?.id, 'view' ]" >{{rig.wellbore?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/rig', rig.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/rig', rig.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'rig/'+ rig.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

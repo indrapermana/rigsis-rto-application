@@ -1,0 +1,32 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.lakon.rto"
+    },
+    "jhipsterVersion": "5.5.0",
+    "applicationType": "monolith",
+    "baseName": "rto_app",
+    "packageName": "com.lakon.rto",
+    "packageFolder": "com/lakon/rto",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "Mzc5ZGEyODNhNjdmMmU0ZWUzNzI2MWI4MmFmYmIxMWQ0ZjVmMmEzNmQwNTQ2MWM1MTEwMzI3YTIyYjgyOTNjYTQ3N2JjYTQxYzA1MTY5MzVlMDRlZGU4OGQ5MzY0NTc0YjA4ZTE3NzFhYTkxYzg2ZTFlNmZjMmVlM2MyZTZjMTQ=",
+    "clientFramework": "angularX",
+    "useSass": false,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "enableTranslation": false
+  }
+}

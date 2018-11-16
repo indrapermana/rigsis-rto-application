@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity Rig.
+    -->
+    <changeSet id="20181116160728-1" author="jhipster">
+        <createTable tableName="rig">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="offshore" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="owner" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="jhi_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="rig_class" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="manufacturer" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="year_service" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="approvals" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="registration" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="contact" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="email" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="phone" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="fax" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="drill_depth" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="water_depth" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="air_gap" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="start_date" type="datetime">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="end_date" type="datetime">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="wellbore_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        <dropDefaultValue tableName="rig" columnName="start_date" columnDataType="datetime"/>
+        <dropDefaultValue tableName="rig" columnName="end_date" columnDataType="datetime"/>
+        
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

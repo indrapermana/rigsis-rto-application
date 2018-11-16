@@ -1,0 +1,66 @@
+<div>
+    <h2 id="page-heading">
+        <span>Unit Type Items</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-unit-type-item" [routerLink]="['/unit-type-item/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Unit Type Item
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="unitTypeItems">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Name</span></th>
+            <th><span>Conversion Type</span></th>
+            <th><span>Symbol</span></th>
+            <th><span>Factor</span></th>
+            <th><span>Unit Type</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let unitTypeItem of unitTypeItems ;trackBy: trackId">
+                <td><a [routerLink]="['/unit-type-item', unitTypeItem.id, 'view' ]">{{unitTypeItem.id}}</a></td>
+                <td>{{unitTypeItem.name}}</td>
+                <td>{{unitTypeItem.conversionType}}</td>
+                <td>{{unitTypeItem.symbol}}</td>
+                <td>{{unitTypeItem.factor}}</td>
+                <td>
+                    <div *ngIf="unitTypeItem.unitType">
+                        <a [routerLink]="['../unit-type', unitTypeItem.unitType?.id, 'view' ]" >{{unitTypeItem.unitType?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/unit-type-item', unitTypeItem.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/unit-type-item', unitTypeItem.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'unit-type-item/'+ unitTypeItem.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

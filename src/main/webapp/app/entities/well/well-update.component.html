@@ -1,0 +1,178 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-well-heading">Create or edit a Well</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!well.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="well.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="well.name" required/>
+                    <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.name?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_legalName">Legal Name</label>
+                    <input type="text" class="form-control" name="legalName" id="field_legalName"
+                        [(ngModel)]="well.legalName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_licenseDate">License Date</label>
+                    <div class="d-flex">
+                        <input id="field_licenseDate" type="datetime-local" class="form-control" name="licenseDate" [(ngModel)]="licenseDate"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_licenseNumber">License Number</label>
+                    <input type="text" class="form-control" name="licenseNumber" id="field_licenseNumber"
+                        [(ngModel)]="well.licenseNumber" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_govermentNumber">Goverment Number</label>
+                    <input type="text" class="form-control" name="govermentNumber" id="field_govermentNumber"
+                        [(ngModel)]="well.govermentNumber" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_apiNumber">Api Number</label>
+                    <input type="text" class="form-control" name="apiNumber" id="field_apiNumber"
+                        [(ngModel)]="well.apiNumber" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_country">Country</label>
+                    <input type="text" class="form-control" name="country" id="field_country"
+                        [(ngModel)]="well.country" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_block">Block</label>
+                    <input type="text" class="form-control" name="block" id="field_block"
+                        [(ngModel)]="well.block" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_field">Field</label>
+                    <input type="text" class="form-control" name="field" id="field_field"
+                        [(ngModel)]="well.field" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_district">District</label>
+                    <input type="text" class="form-control" name="district" id="field_district"
+                        [(ngModel)]="well.district" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_county">County</label>
+                    <input type="text" class="form-control" name="county" id="field_county"
+                        [(ngModel)]="well.county" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_state">State</label>
+                    <input type="text" class="form-control" name="state" id="field_state"
+                        [(ngModel)]="well.state" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_region">Region</label>
+                    <input type="text" class="form-control" name="region" id="field_region"
+                        [(ngModel)]="well.region" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_operator">Operator</label>
+                    <input type="text" class="form-control" name="operator" id="field_operator"
+                        [(ngModel)]="well.operator" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_operatorInterest">Operator Interest</label>
+                    <input type="number" class="form-control" name="operatorInterest" id="field_operatorInterest"
+                        [(ngModel)]="well.operatorInterest" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_operatorDivision">Operator Division</label>
+                    <input type="text" class="form-control" name="operatorDivision" id="field_operatorDivision"
+                        [(ngModel)]="well.operatorDivision" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_timeZone">Time Zone</label>
+                    <input type="text" class="form-control" name="timeZone" id="field_timeZone"
+                        [(ngModel)]="well.timeZone" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_status">Status</label>
+                    <select class="form-control" name="status" [(ngModel)]="well.status" id="field_status" >
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_purpose">Purpose</label>
+                    <input type="text" class="form-control" name="purpose" id="field_purpose"
+                        [(ngModel)]="well.purpose" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_direction">Direction</label>
+                    <input type="text" class="form-control" name="direction" id="field_direction"
+                        [(ngModel)]="well.direction" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_fluid">Fluid</label>
+                    <input type="text" class="form-control" name="fluid" id="field_fluid"
+                        [(ngModel)]="well.fluid" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_dateTimeSpud">Date Time Spud</label>
+                    <div class="d-flex">
+                        <input id="field_dateTimeSpud" type="datetime-local" class="form-control" name="dateTimeSpud" [(ngModel)]="dateTimeSpud"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_dateTimePA">Date Time PA</label>
+                    <div class="d-flex">
+                        <input id="field_dateTimePA" type="datetime-local" class="form-control" name="dateTimePA" [(ngModel)]="dateTimePA"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_headElevation">Head Elevation</label>
+                    <input type="number" class="form-control" name="headElevation" id="field_headElevation"
+                        [(ngModel)]="well.headElevation" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_groundElevation">Ground Elevation</label>
+                    <input type="number" class="form-control" name="groundElevation" id="field_groundElevation"
+                        [(ngModel)]="well.groundElevation" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_waterDepth">Water Depth</label>
+                    <input type="number" class="form-control" name="waterDepth" id="field_waterDepth"
+                        [(ngModel)]="well.waterDepth" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_latitude">Latitude</label>
+                    <input type="text" class="form-control" name="latitude" id="field_latitude"
+                        [(ngModel)]="well.latitude" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_longitude">Longitude</label>
+                    <input type="text" class="form-control" name="longitude" id="field_longitude"
+                        [(ngModel)]="well.longitude" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

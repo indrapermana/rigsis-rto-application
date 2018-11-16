@@ -1,0 +1,185 @@
+enum BooleanType {
+    Yes, No
+}
+
+enum Status {
+    Active, Inactive
+}
+
+entity Well {
+    id Long required,
+    name String required,
+    legalName String,
+    licenseDate ZonedDateTime,
+    licenseNumber String,
+    govermentNumber String,
+    apiNumber String,
+    country String,
+    block String,
+    field String,
+    district String,
+    county String,
+    state String,
+    region String,
+    operator String,
+    operatorInterest Double,
+    operatorDivision String,
+    timeZone String,
+    status Status,
+    purpose String,
+    direction String,
+    fluid String,
+    dateTimeSpud ZonedDateTime,
+    dateTimePA ZonedDateTime,
+    headElevation Double,
+    groundElevation Double,
+    waterDepth Double,
+    latitude String,
+    Longitude String
+}
+
+entity Wellbore {
+    id Long required,
+    name String required,
+    wellName String,
+    parentWellboreName String,
+    govermentNumber String,
+    status Status,
+    purpose String,
+    type String,
+    shape String,
+    dayTarget Integer,
+    kickOffDate ZonedDateTime,
+    achievedTD BooleanType,
+    mdCurrent Double,
+    tvdCurrent Double,
+    mdBitCurrent Double,
+    tvdBitCurrent Double,
+    mdKickOff Double,
+    tvdKickOff Double,
+    mdPlanned Double,
+    tvdPlanned Double,
+    mdSubSea Double,
+    tvdSubSea Double
+}
+
+entity Rig {
+    id Long required,
+    name String required,
+    offshore BooleanType,
+    owner String,
+    type String,
+    rigClass String,
+    manufacturer String,
+    yearService Integer,
+    approvals String,
+    registration String,
+    contact String,
+    email String,
+    phone String,
+    fax String,
+    drillDepth Double,
+    waterDepth Double,
+    airGap Double,
+    startDate ZonedDateTime,
+    endDate ZonedDateTime
+}
+
+entity Job {
+    id Long required,
+    type String
+}
+
+entity WitsService {
+    id Long required,
+    name String required,
+    serviceType String required,
+    hostname String required,
+    port String required,
+    status Status
+}
+
+entity RecordType {
+    id Long required,
+    number Integer,
+    name String required,
+    trigger String,
+    description String
+}
+
+entity RecordItem {
+    id Long required,
+    number Integer,
+    name String required,
+    mnemonic String required,
+    specialCase String,
+    unitType String required,
+    unit String required,
+    dataType String required,
+    nullValue Integer,
+    description String
+}
+
+entity BaseUnit {
+    id Long required,
+    name String required,
+    symbol String,
+    description String,
+    origin String
+}
+
+entity DerivedUnit {
+    id Long required,
+    name String required,
+    symbol String,
+    conversionType String,
+    factor Double,
+    origin String
+}
+
+entity UnitType {
+    id Long required,
+    type String required
+}
+
+entity UnitTypeItem {
+    id Long required,
+    name String required,
+    conversionType String,
+    symbol String,
+    factor Double
+}
+
+relationship ManyToOne {
+    UnitTypeItem to UnitType
+}
+
+relationship ManyToOne {
+    UnitType to BaseUnit
+}
+
+relationship ManyToOne {
+    DerivedUnit to BaseUnit
+}
+
+relationship ManyToOne {
+    RecordItem to RecordType
+}
+
+relationship ManyToOne {
+    Wellbore to Well
+}
+
+relationship ManyToOne {
+    Rig to Wellbore
+}
+
+relationship ManyToOne {
+    Wellbore{parent} to Wellbore
+}
+
+relationship ManyToMany {
+    Job to Rig
+}
+
+

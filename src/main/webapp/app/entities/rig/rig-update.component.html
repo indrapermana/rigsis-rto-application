@@ -1,0 +1,133 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-rig-heading">Create or edit a Rig</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!rig.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="rig.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="rig.name" required/>
+                    <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.name?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_offshore">Offshore</label>
+                    <select class="form-control" name="offshore" [(ngModel)]="rig.offshore" id="field_offshore" >
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_owner">Owner</label>
+                    <input type="text" class="form-control" name="owner" id="field_owner"
+                        [(ngModel)]="rig.owner" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_type">Type</label>
+                    <input type="text" class="form-control" name="type" id="field_type"
+                        [(ngModel)]="rig.type" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_rigClass">Rig Class</label>
+                    <input type="text" class="form-control" name="rigClass" id="field_rigClass"
+                        [(ngModel)]="rig.rigClass" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_manufacturer">Manufacturer</label>
+                    <input type="text" class="form-control" name="manufacturer" id="field_manufacturer"
+                        [(ngModel)]="rig.manufacturer" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_yearService">Year Service</label>
+                    <input type="number" class="form-control" name="yearService" id="field_yearService"
+                        [(ngModel)]="rig.yearService" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_approvals">Approvals</label>
+                    <input type="text" class="form-control" name="approvals" id="field_approvals"
+                        [(ngModel)]="rig.approvals" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_registration">Registration</label>
+                    <input type="text" class="form-control" name="registration" id="field_registration"
+                        [(ngModel)]="rig.registration" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_contact">Contact</label>
+                    <input type="text" class="form-control" name="contact" id="field_contact"
+                        [(ngModel)]="rig.contact" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                        [(ngModel)]="rig.email" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_phone">Phone</label>
+                    <input type="text" class="form-control" name="phone" id="field_phone"
+                        [(ngModel)]="rig.phone" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_fax">Fax</label>
+                    <input type="text" class="form-control" name="fax" id="field_fax"
+                        [(ngModel)]="rig.fax" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_drillDepth">Drill Depth</label>
+                    <input type="number" class="form-control" name="drillDepth" id="field_drillDepth"
+                        [(ngModel)]="rig.drillDepth" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_waterDepth">Water Depth</label>
+                    <input type="number" class="form-control" name="waterDepth" id="field_waterDepth"
+                        [(ngModel)]="rig.waterDepth" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_airGap">Air Gap</label>
+                    <input type="number" class="form-control" name="airGap" id="field_airGap"
+                        [(ngModel)]="rig.airGap" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_startDate">Start Date</label>
+                    <div class="d-flex">
+                        <input id="field_startDate" type="datetime-local" class="form-control" name="startDate" [(ngModel)]="startDate"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_endDate">End Date</label>
+                    <div class="d-flex">
+                        <input id="field_endDate" type="datetime-local" class="form-control" name="endDate" [(ngModel)]="endDate"
+                        />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_wellbore">Wellbore</label>
+                    <select class="form-control" id="field_wellbore" name="wellbore" [(ngModel)]="rig.wellbore" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="wellboreOption.id === rig.wellbore?.id ? rig.wellbore : wellboreOption" *ngFor="let wellboreOption of wellbores; trackBy: trackWellboreById">{{wellboreOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+{
+    "name": "UnitTypeItem",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "conversionType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "symbol",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "factor",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "unitType",
+            "otherEntityName": "unitType",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181116160736",
+    "entityTableName": "unit_type_item",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
