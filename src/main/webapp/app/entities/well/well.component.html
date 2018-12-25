@@ -16,80 +16,22 @@
             <tr>
             <th><span>ID</span></th>
             <th><span>Well Name</span></th>
-            <th><span>Well UID</span></th>
             <th><span>Operator</span></th>
             <th><span>Block</span></th>
             <th><span>Field</span></th>
             <th><span>Country</span></th>
-            <!--<th><span>Name</span></th>
-            <th><span>Legal Name</span></th>
-            <th><span>License Date</span></th>
-            <th><span>License Number</span></th>
-            <th><span>Goverment Number</span></th>
-            <th><span>Api Number</span></th>
-            <th><span>Country</span></th>
-            <th><span>Block</span></th>
-            <th><span>Field</span></th>
-            <th><span>District</span></th>
-            <th><span>County</span></th>
-            <th><span>State</span></th>
-            <th><span>Region</span></th>
-            <th><span>Operator</span></th>
-            <th><span>Operator Interest</span></th>
-            <th><span>Operator Division</span></th>
-            <th><span>Time Zone</span></th>
-            <th><span>Status</span></th>
-            <th><span>Purpose</span></th>
-            <th><span>Direction</span></th>
-            <th><span>Fluid</span></th>
-            <th><span>Date Time Spud</span></th>
-            <th><span>Date Time PA</span></th>
-            <th><span>Head Elevation</span></th>
-            <th><span>Ground Elevation</span></th>
-            <th><span>Water Depth</span></th>
-            <th><span>Latitude</span></th>
-            <th><span>Longitude</span></th>-->
             <th></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let well of wells ;trackBy: trackId">
                 <td><a [routerLink]="['/well', well.id, 'view' ]">{{well.id}}</a></td>
-                <td>{{well.status}}</td>
+                <!--<td>{{well.status}}</td>-->
                 <td>{{well.name}}</td>
-                <td>{{well.fluid}}</td>
                 <td>{{well.operator}}</td>
                 <td>{{well.block}}</td>
                 <td>{{well.field}}</td>
                 <td>{{well.country}}</td>
-                <!--<td>{{well.name}}</td>
-                <td>{{well.legalName}}</td>
-                <td>{{well.licenseDate | date:'medium'}}</td>
-                <td>{{well.licenseNumber}}</td>
-                <td>{{well.govermentNumber}}</td>
-                <td>{{well.apiNumber}}</td>
-                <td>{{well.country}}</td>
-                <td>{{well.block}}</td>
-                <td>{{well.field}}</td>
-                <td>{{well.district}}</td>
-                <td>{{well.county}}</td>
-                <td>{{well.state}}</td>
-                <td>{{well.region}}</td>
-                <td>{{well.operator}}</td>
-                <td>{{well.operatorInterest}}</td>
-                <td>{{well.operatorDivision}}</td>
-                <td>{{well.timeZone}}</td>
-                <td>{{well.status}}</td>
-                <td>{{well.purpose}}</td>
-                <td>{{well.direction}}</td>
-                <td>{{well.fluid}}</td>
-                <td>{{well.dateTimeSpud | date:'medium'}}</td>
-                <td>{{well.dateTimePA | date:'medium'}}</td>
-                <td>{{well.headElevation}}</td>
-                <td>{{well.groundElevation}}</td>
-                <td>{{well.waterDepth}}</td>
-                <td>{{well.latitude}}</td>
-                <td>{{well.longitude}}</td>-->
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <!--<button type="submit"
